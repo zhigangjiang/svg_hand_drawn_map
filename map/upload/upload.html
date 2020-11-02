@@ -1,0 +1,86 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+ <meta name="author" content="wodeditu.com">
+ <meta name="recognition" content="上传页面完整">
+ <meta name="revised" content="jzg,2017/3/23">
+ <meta name="generator" content="Adobe Dreamweaver cs6">
+ <title>上传地图</title>
+    <!--jq mb-->
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/jquery.mobile-1.4.5.min.js"></script> 
+</head>
+<body>
+ 
+
+        <div data-role="page"  id="pageone" >
+                  <div data-role="header" data-position="fixed" >
+                    <a href="javascript:window.history.back();"  data-ajax='false' class="ui-btn ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left">返回</a>
+
+                    <h1>上传地图</h1>
+                  </div>
+                
+                  <div data-role="main" class="ui-content">
+                    <form action="../uploadEdit/editPage.php"onSubmit="return validate_form(this)"  data-ajax='false'  method="post" enctype="multipart/form-data">
+                        <label for="mapName">请设置地图名称:</label>
+                        <input type="text" name="mapName" id="mapName" /> 
+                        <br />
+                        <label for="file">文件名(目前只支持svg文档):</label>
+                        <input type="file" name="file" id="file" /> 
+                        <br />
+                        <input  data-icon="check" type="submit" name="submit" value="上传" />
+                   </form>
+                   <a href="#myPop4" id="tipMapName" data-rel="popup" data-transition="slideup" data-position-to="window"></a>
+                   <div data-role="popup" id="myPop4" class="ui-content">
+                      <p id="tipP">请输入地图名称！</p>
+                   </div>
+				   <script type="text/javascript">
+				   //js表单验证
+					function validate_required(field,alerttxt)
+					{
+					with (field)
+					  {
+					  if (value==null||value=="")
+						{
+							document.getElementById("tipP").innerHTML =alerttxt;
+							$("#tipMapName").trigger("click");
+							return false
+							
+						}
+					  
+					  else {return true}
+					  }
+					}
+					
+					function validate_form(thisform)
+					{
+
+					with (thisform)
+					  {
+
+					  if (validate_required(mapName,"请输入地图名称！")==false)
+						{mapName.focus();return false}
+				      if (validate_required(file,"未选择文件，如需跳过请使用模板！")==false)
+						{file.focus();return false}
+						else if(document.getElementById("file").value.substr(document.getElementById("file").value.lastIndexOf(".")).toLowerCase()!=".svg"){
+						  	document.getElementById("tipP").innerHTML ="目前只能上传.svg后缀的文件哦！";
+							$("#tipMapName").trigger("click");
+						  file.focus();return false
+						 }
+					  }
+					   
+					}  
+    
+					</script>
+                  </div>
+                
+                  <div data-role="footer" data-position="fixed"  style="text-align:center;">
+                        <a href="../../earlyVersion/help.html"  data-ajax='false' class=' ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left' >查看帮助</a>
+                        <a href="../earlyVersion/help.html"  data-ajax='false' class=' ui-btn ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left' >使用模板</a>
+                  </div>
+        </div> 
+ 
+</body>
+</html>

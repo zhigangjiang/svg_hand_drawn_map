@@ -1,0 +1,12 @@
+html{
+height:100%;
+}  
+body{   
+	max-width:1080px;   /*pc最大宽度*/
+	margin: 0 auto;
+	height:100%;
+
+	border-right: 1px solid #c5c5c5;
+	border-left: 1px solid #c5c5c5;
+	box-shadow:2px 2px 3px #aaaaaa;
+}

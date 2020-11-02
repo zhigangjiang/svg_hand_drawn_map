@@ -1,0 +1,10 @@
+var title='石竹山风景区地图';
+var initScale=2;
+var minScale=0.0001;
+var maxScale=20;
+var chgScale=1.5;
+var ReferencePoint_x=2139.125;
+var ReferencePoint_y=2577.744;
+var ReferencePoint_longitude=119.28608;
+var ReferencePoint_latitude=25.70982;
+var pointNum=71;

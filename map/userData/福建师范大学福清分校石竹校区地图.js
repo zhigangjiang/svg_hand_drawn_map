@@ -1,0 +1,10 @@
+var title='福建师范大学福清分校石竹校区地图';
+var initScale=3;
+var minScale=0.5;
+var maxScale=20;
+var chgScale=1.5;
+var ReferencePoint_x=613.4336;
+var ReferencePoint_y=1134.9766;
+var ReferencePoint_longitude=119.30666;
+var ReferencePoint_latitude=25.7074;
+var pointNum=71;

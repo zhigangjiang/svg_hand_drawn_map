@@ -1,0 +1,21 @@
+<!--手势控制js-->
+<script type="text/javascript" src="userJs/hammer.min.js"></script>
+<script type="text/javascript" src="userJs/consvg.js"></script>
+
+<!--定位js-->
+<script type="text/javascript" src="userJs/location.js"></script>
+
+<!--导航js-->
+
+<script type="text/javascript"  src="userJs/mustPath/must.js"></script>
+
+<script type="text/javascript"  src="userJs/mustPath/sort.js"></script>
+
+<script type="text/javascript"  src="userJs/mustPath/Nearpoint1.0.js"></script>
+
+<!--其他js-->
+<script type="text/javascript"  src="userJs/conmap.js"></script>
+
+
+
+</html>

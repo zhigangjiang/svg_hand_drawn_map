@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="icon/map1.ico" type="image/x-icon"/>  
+    <title>3.15福师大福清分校石竹校区地图</title>
+    <style>
+        .animate /*地图操作动画延时效果*/ 
+		{
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+        }
+		.animate3 /*地图操作动画延时效果*/ 
+		{
+            -webkit-transition: all .1s;
+            -moz-transition: all .1s;
+            transition: all .1s;
+        }   
+    </style>
+    <!--jq mb-->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="userJs/jquery-1.11.0.min.js"></script>
+    <script src="userJs/jquery.mobile-1.4.5.min.js"></script> 
+    <!--开关按钮-->
+	<link rel="stylesheet" href="css/honeySwitch.css">
+	<script src="userJs/honeySwitch.js"></script>
+    <!--snap.svg.js-->
+    <script type="text/javascript" src="userJs/snap.svg.js"></script>
+</head>
+<body style="overflow: hidden;  margin: 0; text-shadow:none">
+    <div data-role="page"  style="overflow: hidden;  margin: 0; text-shadow:none">  
+            <div id="conSvg" class="conSvg"  style="text-shadow:none" >
+            <!--svg代码--> 

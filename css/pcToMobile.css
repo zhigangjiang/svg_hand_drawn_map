@@ -1,0 +1,15 @@
+ 
+
+
+body{  
+    background-color: #f8f8f8; 
+	max-width:1080px;   /*pc最大宽度*/
+	margin: 0 auto;
+	height:100%;
+	border-right: 1px solid #c5c5c5;
+	border-left: 1px solid #c5c5c5;
+	box-shadow:5px 5px 30px #aaaaaa;
+}
+h1{
+	background-color: #ffffff; 
+}

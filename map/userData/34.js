@@ -1,0 +1,10 @@
+var title='34';
+var initScale=3;
+var minScale=0.5;
+var maxScale=20;
+var chgScale=1.5;
+var ReferencePoint_x=0;
+var ReferencePoint_y=0;
+var ReferencePoint_longitude=0;
+var ReferencePoint_latitude=0;
+var pointNum=28;

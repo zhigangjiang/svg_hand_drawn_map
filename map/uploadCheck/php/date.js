@@ -1,0 +1,9 @@
+var title='xxx地图';
+var initScale=2;
+var minScale=0.5;
+var maxScale=40;
+var chgScale=1.5;
+var ReferencePoint_x=300;
+var ReferencePoint_y=300;
+var ReferencePoint_longitude=300;
+var ReferencePoint_latitude=300;

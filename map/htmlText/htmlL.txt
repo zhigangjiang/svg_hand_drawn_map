@@ -1,0 +1,286 @@
+<!--svg代码-->
+            
+			</div>
+            
+            
+            
+            <div style=" position:fixed ;left:5px; top:60px; font-size:xx-small;">
+            
+                    <div> <!--定位调试信息-->
+                    <p id="testp"></p>                     
+                    <p id="locationP"></p> 
+                    <p id="pointerTransformP"></p>  
+                    <p id="alphaP"></p>                         
+                    </div>
+                    
+                    <!--svg文档调试信息-->
+                    <div>
+                    <p id="mapImfP"></p>
+                    <p id="svgImfP"></p>            
+                    </div>
+                    
+                    <div><!--样式改变调试信息-->
+                    <p id="mapTransformP"></p>
+                    
+                    </div>
+                    <div>
+                     
+                    <p id="errP"></p>
+                    <p id="log2"></p>
+                    <p id="log3"></p>
+                    <p id="log4"></p>
+                    <p id="log5"></p>
+                    
+                    </div>
+            
+            </div>
+			          
+            <div>  <!--jqm图标按钮-->
+                
+                <!--放大缩小组合按钮--> 
+                <div id="mapbtn" data-role="controlgroup" data-type="vertical" style="position:fixed;bottom:10px;right:10px;">   
+                 <a href="#none" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow  ui-icon-plus ui-btn-icon-notext ui-nodisc-icon ui-alt-icon"onclick="mapPlus()">放大</a>
+                 <a href="#none" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow  ui-icon-minus ui-btn-icon-notext ui-nodisc-icon ui-alt-icon"onclick= "mapMinus()">缩小</a>
+                </div>
+                
+                <!--其他按钮-->
+                
+                
+                <!--定位导航--> 
+                <div style="position:  fixed;bottom:10px;left:10px;">
+                     <a id="lcbtn"   href="#none"  data-rel="popup"  data-position-to="window"onClick="getLocation();showNow();" class="ui-btn ui-corner-all ui-shadow ui-icon-location   ui-nodisc-icon ui-alt-icon ui-btn-icon-notext ui-btn-inline">定位</button>
+                     <a id="goAbtn"  href="#myPopupsearchgo"  data-rel="popup"  data-position-to="window"     class="ui-btn ui-corner-all ui-shadow ui-icon-navigation ui-nodisc-icon ui-alt-icon ui-btn-icon-notext ui-btn-inline " >导航</a>             
+                </div>
+                
+                <!--设置-->
+                <div style="position:  fixed;bottom:110px;right:12px;">
+                     <a id="setbtn"  href="#overlayPane_set" data-rel="popup"  data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-nodisc-icon ui-alt-icon ui-btn-icon-notext" data-transition="pop">设置</a>
+                </div>
+                
+                <!--搜索-->
+                <div style="position:  fixed;top:10px;right:10px;">
+                     <a id="searchBtn"  onClick="searchFun()" href="#nonoe" data-rel="popup"  data-position-to="window" class="ui-btn  ui-corner-all ui-shadow ui-icon-search ui-nodisc-icon ui-alt-icon ui-btn-icon-notext" data-transition="pop"></a>
+                </div>
+                
+                <!--返回-->
+                <div style="position:  fixed;top:10px;left:10px;">
+                     <a  href="javascript:window.history.back();" data-ajax="false"  class="ui-btn ui-corner-all ui-shadow ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">设置</a>
+                </div>
+           </div>
+           
+           
+           <div id="seachdiv" style="position:  fixed;top:8px;right:50px; width:200px"><!--搜索-->
+           
+                <form class="ui-filterable">
+                  <input id="searchText" data-type="search" value="">
+                </form>
+                <script>
+				$("#seachdiv").hide();//初始化隐藏搜索栏
+				
+				var temp_a=0;
+				function inputopen(){
+					$("#seachdiv").slideDown();
+					temp_a=1;
+				}
+				//$("#seachalldiv").animate({ left:'0%'},times)
+				function inputclose(){
+					$("#seachdiv").hide();
+					temp_a=0; 
+				}
+				function inputfun(){
+					if(temp_a==0)inputopen();
+					else inputclose();
+					
+				}
+				</script>
+                
+                <ul id="seachUl" style=
+                "position: fixed;z-index:10; height:150px;overflow:scroll;
+                 margin: 0; text-shadow:none "  
+                data-role="listview" data-filter="true" data-input="#searchText" data-inset="true">
+                  <!--
+                  
+                  <li><a href="#"></a></li>
+                  <li><a href="#">Valarie</a></li>
+                  
+                  js 添加标签生成列表
+                  -->
+                  
+                </ul>
+                
+           
+           </div>
+           
+           
+		  <style>
+		   /*honeySwitch  css*/
+				.common-row {
+					width: 100%;
+					height: 50px;
+					border-bottom: 1px solid lightgrey;
+				}
+				.cell-left, .cell-right {
+					width: 49%;
+					height: 100%;
+					float: left;
+					line-height: 50px;
+				}
+				.cell-right {
+					text-align: right;
+				}
+				.switch-on, .switch-off {
+					margin-top: 9px;
+				}
+				.showBox {
+					width: 100%;
+					border: 1px solid lightgrey;
+					border-radius: 6px;
+					font-size: 16px;
+					background: #CCFF99;
+				}
+				.paragraph {
+					white-space: pre-wrap;
+					margin: 15px 0;
+					word-break: break-all;
+					word-wrap: break-word;
+				}
+				textarea {
+					width: 80%;
+					border: none;
+					outline: none;
+					resize: none;
+					font-size: 16px;
+					height: auto;
+					overflow: visible;
+				}
+				.hidden {
+					display: none;
+				}
+          </style>
+		  <script>
+            
+                   /*honeySwitch  js*/
+                //honeySwitch.themeColor="lightblue";
+                $(function(){
+                    switchEvent("#imfBtn",function(){
+                        imftmp=1;
+						printSvgImf();//显示svg信息
+						printOtherImf();
+                    },function(){
+                        imftmp=0;
+						hideSvgImf();//隐藏svg信息
+						hideOtherImf();
+                    });
+					
+                    switchEvent("#directory",function(){
+                        $("#directory_content").fadeIn();
+                    },function(){
+                        $("#directory_content").fadeOut();
+                    });
+                });
+           </script>
+           <!--设置面板-->
+           <div data-role="panel" id="overlayPane_set" data-display="overlay" the data-position-fixed="true">
+            
+                   <h2>设置</h2>
+                 
+                    <div class="common-row">
+                        <div class="cell-left">旋转</div>
+                        <div class="cell-right"><span class="switch-off" id="bluetooth"></span></div>
+                    </div>
+                    
+                    <div class="common-row">
+                        <div class="cell-left">全屏</div>
+                        <div class="cell-right"><span class="switch-off" id="bluetooth"></span></div>
+                    </div>
+                    
+                    <div class="common-row">
+                        <div class="cell-left">位置</div>
+                        <div class="cell-right"><span class="switch-off switch-disabled" id="position"></span></div>
+                    </div>
+                    <div class="common-row">
+                        <div class="cell-left">显示调试信息</div>
+                        <div class="cell-right"><span class="switch-off" themeColor="gold" id="imfBtn"></span></div>
+                    </div>
+
+                    
+                    <div class="common-row">
+                        <div class="cell-left">查看使用说明</div>
+                        <div class="cell-right"><span class="switch-on" themeColor="#6d9eeb" id="directory"></span></div>
+                    </div>
+                    
+                    <div class="common-row" id="network">
+                        <div class="cell-left">主页</div>
+                        <div class="cell-right"><a  href="javascript:window.history.back();" data-ajax="false">></a></div>
+                    </div>
+                    
+                    <div class="common-row" id="more">
+                        <div class="cell-left">关于</div>
+                        <div class="cell-right"><a  href="../home.html" data-ajax="false">></a></div>
+                    </div>
+            </div> 
+            
+            
+            
+            
+            
+            
+            
+            
+           
+            
+            <a href="#errCode1" id="alerterr1" data-rel="popup"  data-transition="slideup"></a>
+            <a href="#errCode2" id="alerterr2" data-rel="popup"  data-transition="slideup"></a>
+            <a href="#errCode3" id="alerterr3" data-rel="popup"  data-transition="slideup"></a>
+            <a href="#errCode4" id="alerterr4" data-rel="popup"  data-transition="slideup"></a>
+
+            <div  style="width:150px" data-role="popup" id="errCode1" data-position-to="window" class="ui-content">
+            <p>定位失败了!无定位原因：用户不允许地理定位，请开启浏览器位置权限打开GPS，刷新页面并选择允许共享位置信息。</p>
+            </div>
+            <div  style="width:150px" data-role="popup" id="errCode2" data-position-to="window" class="ui-content">
+            <p>定位失败了!原因：暂时获取不了当前位置，请确认gps信号正常，到开阔地再试试</p>
+            </div>
+            <div  style="width:150px" data-role="popup" id="errCode3" data-position-to="window" class="ui-content">
+            <p>定位失败了!原因：使用非移动端，获取gps超时</p>
+            </div>
+            <div  style="width:150px" data-role="popup" id="errCode4" data-position-to="window" class="ui-content">
+            <p>定位失败了!原因：未知错误</p>
+            </div>
+              
+            <a href="#goTip" id='goTipa' data-rel="popup"data-transition="slidedown" data-position-to="#touchTemp">底部</a>
+            <div data-role="popup" id="goTip" class="ui-content" data-arrow="b">
+              
+                 <h3 onClick="goThere()">去这里</h3>
+                 <p id="tx"></p>
+                 <p id="ty"></p>
+            </div>
+            
+            
+            
+            
+      <div data-role="popup" id="myPopupsearchgo">
+
+      <div data-role="main" class="ui-content">
+      <p></p>
+<p id="demo2"></p>
+<p id="demo1"></p>
+<p id="demo"></p>
+
+                                  <div class="ui-field-contain" >
+
+终点：<input id="end" data-role="none"  data-type="search" value="">
+<br>
+起点：<input  data-role="none"  type="text" name="referenceY" id="beg" value="当前位置">
+<br>
+</div>
+<button  onClick="displayDate()">开始导航</button>
+
+
+      </div>
+
+      </div>
+            
+
+</div>
+
+</body>
